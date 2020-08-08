@@ -1,0 +1,76 @@
+---
+login: "YOUR_USERNAME"
+password: "YOUR_PASSWORD"
+
+start_at_h: 0
+start_at_m: 0
+end_at_h: 23
+end_at_m: 59
+window_check_every: 60
+
+debug: 1 # put 0 if you don't want to get debug messages
+user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:68.0) Gecko/20100101 Firefox/68.0"
+
+tag_list: ["cute", "follow4follow", "f4f"]
+tag_blacklist: ["sex", "porno"]
+
+like_per_run: 196
+max_like_for_one_tag: 36
+media_min_like: 20
+media_max_like: 200
+like_followers_per_run: 0
+
+unlike_per_run: 0
+time_till_unlike: 259200
+
+follow_per_run: 156
+follow_time: 259200
+follow_attempts: 2
+user_min_follow: 200
+user_max_follow: 2200
+
+unfollow_per_run: 199
+unfollow_break_min: 3
+unfollow_break_max: 17
+unfollow_selebgram: false
+unfollow_probably_fake: true
+unfollow_inactive: true
+unfollow_recent_feed: false
+unfollow_whitelist: []
+
+unwanted_username_list: ["free", "travel", "shop", "store", "sex", "online"]
+comments_per_run: 0
+comment_list: [
+        ["this", "the", "your"],
+        ["photo", "picture", "pic", "shot", "snapshot"],
+        ["is", "looks", "feels", "is really"],
+        [
+            "great",
+            "super",
+            "good",
+            "very good",
+            "good",
+            "wow",
+            "WOW",
+            "cool",
+            "GREAT",
+            "magnificent",
+            "magical",
+            "very cool",
+            "stylish",
+            "beautiful",
+            "so beautiful",
+            "so stylish",
+            "so professional",
+            "lovely",
+            "so lovely",
+            "very lovely",
+            "glorious",
+            "so glorious",
+            "very glorious",
+            "adorable",
+            "excellent",
+            "amazing",
+        ],
+        [".", "..", "...", "!", "!!", "!!!"],
+    ]
