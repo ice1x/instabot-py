@@ -992,9 +992,12 @@ According to the configuration this bot will:
         url_info = self.url_user_detail % username
         resp = self.s.get(url_info)
         if resp.status_code == 200:
-            all_data = json.loads(
-                re.search("window._sharedData = (.*?);</script>", resp.text,
-                          re.DOTALL).group(1))
+            try:
+                all_data = json.loads(
+                    re.search("window._sharedData = (.*?);</script>", resp.text, re.DOTALL).group(1)
+                )
+            except AttributeError as e:
+                self.logger.critical(repr(e))
             followers_count = all_data['entry_data']['ProfilePage'][0][
                 'graphql']['user']['edge_followed_by']['count']
         elif resp.status_code == 429:
