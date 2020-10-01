@@ -991,6 +991,7 @@ According to the configuration this bot will:
     def get_followers_count(self, username):
         url_info = self.url_user_detail % username
         resp = self.s.get(url_info)
+        followers_count = 0
         if resp.status_code == 200:
             try:
                 all_data = json.loads(
@@ -998,8 +999,9 @@ According to the configuration this bot will:
                 )
             except AttributeError as e:
                 self.logger.critical(repr(e))
-            followers_count = all_data['entry_data']['ProfilePage'][0][
-                'graphql']['user']['edge_followed_by']['count']
+            else:
+                followers_count = all_data['entry_data']['ProfilePage'][0][
+                   'graphql']['user']['edge_followed_by']['count']
         elif resp.status_code == 429:
             self.logger.critical(
                 f"It seems like Instagram detected and blocked bot's actions. "
@@ -1013,7 +1015,6 @@ According to the configuration this bot will:
             self.logger.warning(
                 f"Could not retrieve number of followers of user {username}, "
                 f"url: {url_info}. Status code: {resp.status_code}")
-            followers_count = 0
 
         return followers_count
 
